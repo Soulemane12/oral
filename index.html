@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oral Hygiene Education Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="#" class="logo">Oral Health Hub</a>
+        <ul class="nav-links">
+            <li><a href="#learn" class="active">Learn</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Empower Your Oral Health Journey</h1>
+            <p>Discover interactive tools, expert guidance, and personalized learning to transform your dental care routine and achieve a brighter, healthier smile.</p>
+            <div class="cta-buttons">
+                <a href="#learn" class="cta-button primary-button">Start Learning</a>
+                <a href="#quiz" class="cta-button secondary-button">Take Quiz</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- Interactive Timer Section -->
+        <section id="brushing-timer" class="timer-container">
+            <h2>Brushing Timer</h2>
+            <div id="timer-display">2:00</div>
+            <div id="quadrant-display">
+                <div class="quadrant" id="q1">Upper Right</div>
+                <div class="quadrant" id="q2">Upper Left</div>
+                <div class="quadrant" id="q3">Lower Left</div>
+                <div class="quadrant" id="q4">Lower Right</div>
+            </div>
+            <button id="start-timer">Start Brushing Timer</button>
+        </section>
+
+        <!-- Interactive Tooth Diagram -->
+        <section id="tooth-diagram" class="diagram-container">
+            <div id="tooth-map"></div>
+            <div id="tooth-info">
+                <h3>Click on any area to learn more!</h3>
+                <p id="tooth-description">Click on different areas of the tooth diagram to learn about each section of your mouth.</p>
+            </div>
+        </section>
+
+        <!-- Daily Tracking -->
+        <section id="hygiene-tracker" class="tracker-container">
+            <h2>Daily Oral Hygiene Tracker</h2>
+            <div class="tracker-item">
+                <label>
+                    <input type="checkbox" id="morning-brush">
+                    Morning Brush
+                </label>
+            </div>
+            <div class="tracker-item">
+                <label>
+                    <input type="checkbox" id="evening-brush">
+                    Evening Brush
+                </label>
+            </div>
+            <div class="tracker-item">
+                <label>
+                    <input type="checkbox" id="floss">
+                    Daily Floss
+                </label>
+            </div>
+            <button id="save-progress">Save Today's Progress</button>
+        </section>
+
+        <!-- Enhanced Learn Section -->
+        <section id="learn" class="learn-section">
+            <h2>Learn About Oral Hygiene</h2>
+            <div class="learn-tabs">
+                <button class="tab-button active" data-tab="brushing">Brushing</button>
+                <button class="tab-button" data-tab="flossing">Flossing</button>
+                <button class="tab-button" data-tab="nutrition">Nutrition</button>
+            </div>
+            <div class="tab-content" id="brushing-content">
+                <h3>Proper Brushing Technique</h3>
+                <div class="technique-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <p>Hold your brush at a 45-degree angle to your gums</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <p>Use gentle circular motions</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <p>Brush all surfaces of each tooth</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <p>Don't forget your tongue!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="flossing-content" style="display: none;">
+                <h3>Flossing Guide</h3>
+                <div class="technique-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <p>Break off about 18 inches of floss</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <p>Wind most of the floss around your middle fingers</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <p>Gently guide the floss between teeth using a rubbing motion</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <p>Curve the floss around each tooth in a C shape</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="nutrition-content" style="display: none;">
+                <h3>Nutrition for Healthy Teeth</h3>
+                <div class="technique-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <p>Eat calcium-rich foods (dairy, leafy greens)</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <p>Limit sugary and acidic foods</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <p>Drink plenty of water</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <p>Choose fiber-rich fruits and vegetables</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="quiz-section">
+            <h2>Test Your Knowledge</h2>
+            <button id="quizButton">Take the Quiz</button>
+            <div id="quizContainer" class="hidden">
+                <h3>Oral Hygiene Quiz</h3>
+                <form id="quizForm">
+                    <div class="quiz-question">
+                        <p>1. How often should you brush your teeth?</p>
+                        <input type="radio" id="q1a" name="q1" value="incorrect">
+                        <label for="q1a">Once a day</label><br>
+                        <input type="radio" id="q1b" name="q1" value="correct">
+                        <label for="q1b">Twice a day</label><br>
+                        <input type="radio" id="q1c" name="q1" value="incorrect">
+                        <label for="q1c">Only when they feel dirty</label>
+                    </div>
+                    <div class="quiz-question">
+                        <p>2. How long should you brush your teeth?</p>
+                        <input type="radio" id="q2a" name="q2" value="incorrect">
+                        <label for="q2a">30 seconds</label><br>
+                        <input type="radio" id="q2b" name="q2" value="correct">
+                        <label for="q2b">2 minutes</label><br>
+                        <input type="radio" id="q2c" name="q2" value="incorrect">
+                        <label for="q2c">5 minutes</label>
+                    </div>
+                    <button type="submit">Submit Quiz</button>
+                </form>
+                <div id="quizResult" class="hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@oralhygiene.edu</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="team.html">Our Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Oral Hygiene Education. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
