@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz History - A Represented Smile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html" class="logo">A Represented Smile</a>
+        <!-- Hamburger Menu -->
+        <div class="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" role="button" tabindex="0">
+            ☰
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#missions">Missions</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li class="dropdown">
+                <a href="#quiz" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Quiz</a>
+                <ul class="dropdown-menu" aria-label="Quiz Submenu">
+                    <li><a href="index.html#quiz">Take Quiz</a></li>
+                    <li><a href="quiz_history.html">Quiz History</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#learn">Lessons</a></li>
+            <li><a href="index.html#articles">Articles</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="index.html#events">Events</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Quiz History</h1>
+            <p>Review your past quizzes, view your scores, and see detailed feedback to track your progress.</p>
+        </div>
+    </section>
+
+    <main>
+        <!-- Quiz History Section -->
+        <section id="quiz-history" class="quiz-history-section" aria-labelledby="quiz-history-heading">
+            <h2 id="quiz-history-heading">Your Quiz History</h2>
+            <div id="history-list" class="history-list">
+                <!-- Quiz history entries will be dynamically generated here -->
+            </div>
+        </section>
+
+        <!-- Detailed Quiz Feedback Modal -->
+        <div id="quiz-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-content">
+                <span class="close-button" aria-label="Close Modal">&times;</span>
+                <h3 id="modal-title">Quiz Details</h3>
+                <div id="modal-body">
+                    <!-- Detailed quiz information will be injected here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Badges Section -->
+        <section id="badges" class="badges-section hidden" aria-labelledby="badges-heading">
+            <h2 id="badges-heading">Your Badges</h2>
+            <div class="badge-container">
+                <!-- Badges will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Removed Footer -->
+
+    <script src="quiz_history.js"></script>
+</body>
+</html>
