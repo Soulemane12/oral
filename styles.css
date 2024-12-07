@@ -125,6 +125,49 @@ body {
     background: rgba(26, 115, 232, 0.1);
 }
 
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    content: ' ▼';
+    font-size: 0.6rem;
+    margin-left: 0.3rem;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--secondary-color);
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    display: none;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background: var(--background-light);
+    color: var(--primary-color);
+}
+
 /* ------------------------------
    Hero Section Styles
 ------------------------------ */
@@ -321,56 +364,607 @@ h2 {
 }
 
 /* ------------------------------
-   Footer Styles
+   Timer Section Styles
 ------------------------------ */
-footer {
+.timer-container {
+    text-align: center;
+    padding: 2rem;
+    background: var(--background-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+#timer-display {
+    font-size: 3rem; /* Adjusted for better readability */
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 1rem 0;
+}
+
+#quadrant-display {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap; /* Allow quadrants to wrap on small screens */
+}
+
+.quadrant {
+    padding: 1rem 1.5rem;
+    background: var(--background-light);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 0.5rem;
+    text-align: center;
+    min-width: 100px;
+    flex: 1 1 45%; /* Adjust width for better fit on mobile */
+}
+
+.quadrant.active {
+    background: var(--primary-color);
+    color: var(--text-light);
+    transform: scale(1.05);
+}
+
+/* ------------------------------
+   Tooth Diagram Styles
+------------------------------ */
+.diagram-container {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#tooth-map {
+    flex: 1;
+    min-height: 300px;
+    background: var(--background-light);
+    border-radius: 10px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.tooth-quadrant {
+    background: var(--background-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+}
+
+.tooth-quadrant:hover {
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+
+#tooth-info {
+    flex: 1;
+    padding: 1.5rem;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+/* ------------------------------
+   Hygiene Tracker Styles
+------------------------------ */
+.tracker-container {
+    background: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.tracker-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.tracker-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: var(--background-light);
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tracker-item:hover {
+    background: var(--accent-color);
+}
+
+.tracker-item label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+}
+
+.tracker-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+#save-progress {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+    transition: var(--transition);
+    margin-top: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#save-progress:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Progress Tracking */
+#progress-tracking {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+#progress-tracking h3 {
+    font-size: var(--font-size-medium);
+    margin-bottom: 1rem;
+}
+
+#progress-history {
+    list-style: none;
+    padding: 0;
+}
+
+#progress-history li {
+    background: var(--background-light);
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    box-shadow: var(--box-shadow);
+    font-size: var(--font-size-small);
+}
+
+/* ------------------------------
+   Learn Section Styles
+------------------------------ */
+.learn-section {
     background: var(--secondary-color);
     padding: 2rem;
-    border-top: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
-.footer-content {
+.learn-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.learn-tabs {
     display: flex;
-    justify-content: space-around;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: auto;
+    justify-content: center;
 }
 
-.footer-section h3 {
+.tab-button {
+    padding: 0.8rem 1.5rem;
+    background: var(--background-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: var(--font-size-small);
+}
+
+.tab-button.active {
+    background: var(--primary-color);
+    color: var(--text-light);
+    transform: scale(1.05);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.technique-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.step {
+    background: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 35px;
+    height: 35px;
+    background: var(--primary-color);
+    color: var(--text-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: var(--box-shadow);
+    font-size: var(--font-size-small);
+}
+
+/* ------------------------------
+   Articles Section Styles
+------------------------------ */
+.articles-section {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.articles-section h2 {
+    text-align: center;
     margin-bottom: 1rem;
     color: var(--primary-color);
 }
 
-.footer-section p,
-.footer-section a {
+.article {
+    background: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.article:hover {
+    transform: translateY(-5px);
+}
+
+.article h3 {
+    margin-bottom: 0.5rem;
+    font-size: var(--font-size-medium);
+}
+
+.article p {
     font-size: var(--font-size-small);
     color: var(--text-dark);
+}
+
+.read-more {
     text-decoration: none;
-}
-
-.footer-section a:hover {
     color: var(--primary-color);
+    font-weight: bold;
+    font-size: var(--font-size-small);
 }
 
-.social-links a {
-    display: inline-block;
-    margin-right: 1rem;
-    color: var(--text-dark);
-    text-decoration: none;
-    transition: color 0.3s ease;
+.read-more:hover {
+    text-decoration: underline;
 }
 
-.social-links a:hover {
-    color: var(--primary-color);
+/* ------------------------------
+   Testimonials Section Styles
+------------------------------ */
+.testimonials-section {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
-.footer-bottom {
+.testimonials-section h2 {
     text-align: center;
-    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.testimonial {
+    background: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial p {
     font-size: var(--font-size-small);
-    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.testimonial h4 {
+    font-size: var(--font-size-small);
+    color: var(--primary-color);
+}
+
+/* ------------------------------
+   Quiz Section Styles
+------------------------------ */
+.quiz-section {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.quiz-section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+#quizButton {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+    transition: var(--transition);
+    display: block;
+    margin: 0 auto;
+}
+
+#quizButton:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.quiz-container {
+    margin-top: 1.5rem;
+}
+
+.quiz-question {
+    background: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.quiz-question p {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: var(--font-size-medium);
+}
+
+.quiz-question label {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: var(--font-size-small);
+}
+
+.quiz-question input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+#quizForm button[type="submit"] {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+    transition: var(--transition);
+    display: block;
+    margin: 1rem auto 0;
+}
+
+#quizForm button[type="submit"]:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+#quizResult {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--accent-color);
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    white-space: pre-wrap; /* To preserve line breaks */
+    font-size: var(--font-size-medium);
+}
+
+/* ------------------------------
+   Badges Section Styles
+------------------------------ */
+.badges-section {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.badges-section h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.badge {
+    background: var(--badge-color);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-weight: bold;
+    box-shadow: var(--box-shadow);
+    font-size: var(--font-size-small);
+    animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ------------------------------
+   Modal Styles (if applicable)
+------------------------------ */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-question {
+    margin-bottom: 1.5rem;
+}
+
+.modal-question p {
+    margin: 0.5rem 0;
+    font-size: var(--font-size-small);
+}
+
+/* ------------------------------
+   Quiz History Page Styles (if applicable)
+------------------------------ */
+.quiz-history-section {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.quiz-history-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quiz-entry {
+    background: var(--background-light);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.quiz-entry:hover {
+    transform: translateY(-5px);
+    background: var(--accent-color);
+    color: var(--text-light);
+}
+
+.quiz-entry p {
+    margin: 0.3rem 0;
+    font-size: var(--font-size-medium);
+}
+
+/* ------------------------------
+   Dropdown Menu Adjustments for Mobile
+------------------------------ */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+    }
+
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
 }
 
 /* ------------------------------
@@ -439,16 +1033,6 @@ footer {
         display: block;
         cursor: pointer;
         font-size: 1.5rem;
-    }
-
-    /* Hide nav-links initially */
-    .nav-links {
-        display: none;
-    }
-
-    /* Show nav-links when active */
-    .nav-links.active {
-        display: flex;
     }
 
     /* Adjust padding for sections */
@@ -701,84 +1285,112 @@ footer {
 /* ------------------------------
    Dropdown Menu Styles
 ------------------------------ */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-toggle::after {
-    content: ' ▼';
-    font-size: 0.6rem;
-    margin-left: 0.3rem;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--secondary-color);
-    list-style: none;
-    padding: 0.5rem 0;
-    margin: 0;
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius);
-    display: none;
-    min-width: 150px;
-    z-index: 1000;
-}
-
-.dropdown:hover .dropdown-menu,
-.dropdown:focus-within .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu li a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: var(--text-dark);
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-.dropdown-menu li a:hover {
-    background: var(--background-light);
-    color: var(--primary-color);
-}
-
-/* ------------------------------
-   Team Section Styles
------------------------------- */
 /* Already defined above */
 
 /* ------------------------------
    Footer Styles
 ------------------------------ */
-/* Already defined above */
+footer {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
 
-/* ------------------------------
-   Other Section Styles
------------------------------- */
-/* Ensure that all other sections (e.g., timer, learn, articles) are correctly styled */
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: var(--font-size-small);
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 1rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: var(--font-size-small);
+    color: var(--text-dark);
+}
 
 /* ------------------------------
    Quiz History Page Styles (if applicable)
 ------------------------------ */
-/* Add styles if you have a separate quiz history page */
+.quiz-history-section {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.quiz-history-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quiz-entry {
+    background: var(--background-light);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.quiz-entry:hover {
+    transform: translateY(-5px);
+    background: var(--accent-color);
+    color: var(--text-light);
+}
+
+.quiz-entry p {
+    margin: 0.3rem 0;
+    font-size: var(--font-size-medium);
+}
 
 /* ------------------------------
-   Responsive Dropdown Menu Adjustments
+   Dropdown Menu Adjustments for Mobile
 ------------------------------ */
-@media (max-width: 768px) {
-    .dropdown-menu {
-        position: static;
-        box-shadow: none;
-    }
+/* Already handled in mobile media queries above */
 
-    .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu {
-        display: none;
-    }
+/* ------------------------------
+   Additional Section Styles
+------------------------------ */
+/* Ensure all other sections (e.g., quiz, badges) have consistent styles as defined above */
 
-    .dropdown.active .dropdown-menu {
-        display: block;
-    }
-}
