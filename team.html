@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Represented Smile</title>
+    <title>Meet Our Team - A Represented Smile</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,271 +14,114 @@
             ☰
         </div>
         <ul class="nav-links">
-            <li><a href="#missions">Missions</a></li>
-            <li><a href="team.html">Our Team</a></li>
+            <li><a href="index.html#missions">Missions</a></li>
+            <li><a href="team.html" class="active" aria-current="page">Our Team</a></li>
             <li class="dropdown">
                 <a href="#quiz" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Quiz</a>
                 <ul class="dropdown-menu" aria-label="Quiz Submenu">
-                    <li><a href="#quiz">Take Quiz</a></li>
+                    <li><a href="index.html#quiz">Take Quiz</a></li>
                     <li><a href="quiz_history.html">Quiz History</a></li>
                 </ul>
             </li>
-            <li><a href="#learn">Lessons</a></li>
-            <li><a href="#articles">Articles</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#events">Events</a></li>
+            <li><a href="index.html#learn">Lessons</a></li>
+            <li><a href="index.html#articles">Articles</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="index.html#events">Events</a></li>
         </ul>
     </nav>
 
     <section class="hero-section">
         <div class="hero-content">
-            <h1>Empower Your Oral Health Journey</h1>
-            <p>Discover interactive tools, expert guidance, and personalized learning to transform your dental care routine and achieve a brighter, healthier smile.</p>
-            <div class="cta-buttons">
-                <a href="#learn" class="cta-button primary-button">Start Learning</a>
-                <a href="#quiz" class="cta-button secondary-button">Take Quiz</a>
-            </div>
+            <h1>Meet Our Expert Team</h1>
+            <p>Our dedicated professionals are committed to promoting excellent oral health education.</p>
         </div>
     </section>
 
     <main>
-        <!-- Missions Section -->
-        <section id="missions" class="missions-section" aria-labelledby="missions-heading">
-            <h2 id="missions-heading">Our Missions</h2>
-            <div class="mission-items">
-                <div class="mission-item">
-                    <h3>Educate</h3>
-                    <p>Provide comprehensive oral hygiene education through interactive lessons and resources.</p>
+        <section class="team-section" aria-labelledby="team-heading">
+            <h1 id="team-heading">Meet Our Expert Team</h1>
+            <p class="team-intro">Our dedicated professionals are committed to promoting excellent oral health education.</p>
+            
+            <div class="team-grid">
+                <!-- Team Member 1: Kazi Ayman -->
+                <div class="team-member">
+                    <h3>Kazi Ayman</h3>
+                    <div class="member-image">
+                        <img src="kazi.png" alt="Kazi Ayman">
+                    </div>
+                    <p class="role">Founder</p>
+                    <p class="bio">Kazi is the visionary behind A Represented Smile, dedicated to improving oral hygiene education through innovative programs and community engagement.</p>
                 </div>
-                <div class="mission-item">
-                    <h3>Empower</h3>
-                    <p>Empower individuals with the knowledge and tools to maintain excellent oral health.</p>
+
+                <!-- Team Member 2: Tenzin Soepa -->
+                <div class="team-member">
+                    <h3>Tenzin Soepa</h3>
+                    <div class="member-image">
+                        <img src="tenzin.png" alt="Tenzin Soepa">
+                    </div>
+                    <p class="role">President</p>
+                    <p class="bio">A junior at Manhattan Center for Science and Mathematics, Tenzin is dedicated to bridging healthcare gaps by securing funding for dental care packages in underserved communities.</p>
                 </div>
-                <div class="mission-item">
-                    <h3>Engage</h3>
-                    <p>Engage communities with events and initiatives that promote oral health awareness.</p>
+
+                <!-- Team Member 3: Mahi Sarkar -->
+                <div class="team-member">
+                    <h3>Mahi Sarkar</h3>
+                    <div class="member-image">
+                        <img src="mahi.png" alt="Mahi Sarkar">
+                    </div>
+                    <p class="role">Secretary</p>
+                    <p class="bio">Mahi, a junior at Bronx Science, is committed to promoting proper oral hygiene and driving positive change in marginalized communities.</p>
                 </div>
-            </div>
-        </section>
 
-        <!-- Events Section -->
-        <section id="events" class="events-section" aria-labelledby="events-heading">
-            <h2 id="events-heading">Upcoming Events</h2>
-            <div class="events-list">
-                <!-- Event items as provided -->
-                <!-- ... (omitted for brevity) ... -->
-            </div>
-        </section>
-
-        <!-- Interactive Timer Section -->
-        <section id="brushing-timer" class="timer-container" aria-labelledby="brushing-timer-heading">
-            <h2 id="brushing-timer-heading">Brushing Timer</h2>
-            <div id="timer-display" aria-live="polite">2:00</div>
-            <div id="quadrant-display">
-                <div class="quadrant" id="q1">Upper Right</div>
-                <div class="quadrant" id="q2">Upper Left</div>
-                <div class="quadrant" id="q3">Lower Left</div>
-                <div class="quadrant" id="q4">Lower Right</div>
-            </div>
-            <button id="start-timer" aria-pressed="false">Start Brushing Timer</button>
-        </section>
-
-        <!-- Interactive Tooth Diagram -->
-        <section id="tooth-diagram" class="diagram-container" aria-labelledby="tooth-diagram-heading">
-            <div id="tooth-map" aria-label="Tooth Diagram">
-                <!-- Quadrant areas dynamically generated by JavaScript -->
-            </div>
-            <div id="tooth-info">
-                <h3>Click on any area to learn more!</h3>
-                <p id="tooth-description">Click on different areas of the tooth diagram to learn about each section of your mouth.</p>
-            </div>
-        </section>
-
-        <!-- Daily Tracking -->
-        <section id="hygiene-tracker" class="tracker-container" aria-labelledby="hygiene-tracker-heading">
-            <h2 id="hygiene-tracker-heading">Daily Oral Hygiene Tracker</h2>
-            <div class="tracker-item">
-                <label for="morning-brush">
-                    <input type="checkbox" id="morning-brush" aria-describedby="morning-brush-desc">
-                    Morning Brush
-                </label>
-                <span id="morning-brush-desc" class="visually-hidden">Check this box after brushing your teeth in the morning.</span>
-            </div>
-            <div class="tracker-item">
-                <label for="evening-brush">
-                    <input type="checkbox" id="evening-brush" aria-describedby="evening-brush-desc">
-                    Evening Brush
-                </label>
-                <span id="evening-brush-desc" class="visually-hidden">Check this box after brushing your teeth in the evening.</span>
-            </div>
-            <div class="tracker-item">
-                <label for="floss">
-                    <input type="checkbox" id="floss" aria-describedby="floss-desc">
-                    Daily Floss
-                </label>
-                <span id="floss-desc" class="visually-hidden">Check this box after flossing your teeth daily.</span>
-            </div>
-            <button id="save-progress" aria-label="Save Today's Progress">Save Today's Progress</button>
-            <div id="progress-tracking" class="hidden" aria-live="polite">
-                <h3>Your Progress</h3>
-                <ul id="progress-history">
-                    <!-- Progress history dynamically generated -->
-                </ul>
-            </div>
-        </section>
-
-        <!-- Enhanced Learn Section -->
-        <section id="learn" class="learn-section" aria-labelledby="learn-heading">
-            <h2 id="learn-heading">Learn About Oral Hygiene</h2>
-            <div class="learn-tabs" role="tablist">
-                <button class="tab-button active" data-tab="brushing" role="tab" aria-selected="true" id="brushing-tab">Brushing</button>
-                <button class="tab-button" data-tab="flossing" role="tab" aria-selected="false" id="flossing-tab">Flossing</button>
-                <button class="tab-button" data-tab="nutrition" role="tab" aria-selected="false" id="nutrition-tab">Nutrition</button>
-                <button class="tab-button" data-tab="advanced" role="tab" aria-selected="false" id="advanced-tab">Advanced Topics</button>
-            </div>
-            <div class="tab-content active" id="brushing-content" role="tabpanel" aria-labelledby="brushing-tab">
-                <h3>Proper Brushing Technique</h3>
-                <div class="technique-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <p>Apply a pea-sized amount of toothpaste to your toothbrush.</p>
+                <!-- Team Member 4: Asif Rahman -->
+                <div class="team-member">
+                    <h3>Asif Rahman</h3>
+                    <div class="member-image">
+                        <img src="asif.png" alt="Asif Rahman">
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <p>Hold the toothbrush at a 45-degree angle to your gums.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <p>Use gentle, circular motions to brush the outer, inner, and chewing surfaces of each tooth.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <p>Brush for at least two minutes, ensuring all areas are covered.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">5</div>
-                        <p>Don't forget to brush your tongue to remove bacteria and freshen breath.</p>
-                    </div>
+                    <p class="role">Special Events Coordinator</p>
+                    <p class="bio">A junior at Bronx Science passionate about computer science and data science, dedicated to helping others and fostering similar passions in fellow students.</p>
                 </div>
-            </div>
-            <div class="tab-content" id="flossing-content" role="tabpanel" aria-labelledby="flossing-tab">
-                <h3>Effective Flossing Techniques</h3>
-                <div class="technique-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <p>Take about 18 inches of dental floss and wind most of it around each middle finger.</p>
+
+                <!-- Team Member 5: Montasir Niyaz -->
+                <div class="team-member">
+                    <h3>Montasir Niyaz</h3>
+                    <div class="member-image">
+                        <img src="montasir.png" alt="Montasir Niyaz">
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <p>Hold the floss tightly between your thumbs and forefingers.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <p>Guide the floss between your teeth using a gentle rubbing motion.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <p>Curve the floss around each tooth in a C-shape and slide it beneath the gumline.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">5</div>
-                        <p>Use a clean section of floss for each tooth to avoid spreading bacteria.</p>
-                    </div>
+                    <p class="role">Concept Director</p>
+                    <p class="bio">Niyaz, a junior at Brooklyn Technical High School, is passionate about health and technology. He is committed to helping less fortunate communities by teaching important health concepts.</p>
                 </div>
-            </div>
-            <div class="tab-content" id="nutrition-content" role="tabpanel" aria-labelledby="nutrition-tab">
-                <h3>Nutrition for Healthy Teeth and Gums</h3>
-                <div class="technique-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <p>Consume a balanced diet rich in fruits, vegetables, lean proteins, and whole grains.</p>
+
+                <!-- Team Member 6: Julkarnain Chowdhury -->
+                <div class="team-member">
+                    <h3>Julkarnain Chowdhury</h3>
+                    <div class="member-image">
+                        <img src="julkarnain.png" alt="Julkarnain Chowdhury">
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <p>Limit sugary snacks and beverages that can contribute to tooth decay.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <p>Include calcium-rich foods like dairy products, almonds, and leafy greens to strengthen enamel.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <p>Stay hydrated by drinking plenty of water, which helps wash away food particles and bacteria.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">5</div>
-                        <p>Incorporate vitamin C sources such as oranges, strawberries, and bell peppers to maintain healthy gums.</p>
-                    </div>
+                    <p class="role">Chair of Board</p>
+                    <p class="bio">Julkarnain, a junior at Stuyvesant High School, focuses on guiding the organization's vision and supporting the team to create lasting positive changes in communities.</p>
                 </div>
-            </div>
-            <div class="tab-content" id="advanced-content" role="tabpanel" aria-labelledby="advanced-tab">
-                <h3>Advanced Oral Hygiene Topics</h3>
-                <div class="technique-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <p>Understand the role of interdental brushes and water flossers in comprehensive oral care.</p>
+
+                <!-- Team Member 7: Faiz Ahmed -->
+                <div class="team-member">
+                    <h3>Faiz Ahmed</h3>
+                    <div class="member-image">
+                        <img src="faiz.png" alt="Faiz Ahmed">
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <p>Learn about the impact of orthodontic appliances on oral hygiene and how to maintain them.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <p>Explore the benefits of antimicrobial mouthwashes and their appropriate use.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <p>Delve into the latest advancements in dental technology and treatments.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">5</div>
-                        <p>Investigate the connections between oral health and overall systemic health.</p>
-                    </div>
+                    <p class="role">Resource Manager</p>
+                    <p class="bio">Faiz, a junior at Bronx High School of Science exploring the medical field, focused on providing access to important resources and information.</p>
                 </div>
-            </div>
-        </section>
 
-        <!-- Detailed Articles Section -->
-        <section id="articles" class="articles-section" aria-labelledby="articles-heading">
-            <h2 id="articles-heading">Detailed Articles</h2>
-            <article class="article">
-                <h3>The Impact of Diet on Dental Health</h3>
-                <p>A balanced diet plays a crucial role in maintaining strong teeth and healthy gums. Learn how different nutrients contribute to oral health and which foods to include or avoid.</p>
-                <a href="https://www.mouthhealthy.org/all-topics-a-z/diet-and-dental-health" target="_blank" class="read-more">Read More</a>
-            </article>
-            <article class="article">
-                <h3>Latest Advancements in Dental Care</h3>
-                <p>Discover the newest technologies and treatments in dental care that are revolutionizing the way we maintain oral hygiene and treat dental issues.</p>
-                <a href="https://www.webmd.com/oral-health/advances-in-dental-care-whats-new-at-the-dentist" target="_blank" class="read-more">Read More</a>
-            </article>
-        </section>
-
-        <!-- User Testimonials Section -->
-        <section id="testimonials" class="testimonials-section" aria-labelledby="testimonials-heading">
-            <h2 id="testimonials-heading">What Our Users Say</h2>
-            <div class="testimonial">
-                <p>"A Represented Smile has transformed my dental routine! The interactive tools and educational content are fantastic."</p>
-                <h4>- Jane Doe</h4>
-            </div>
-            <div class="testimonial">
-                <p>"As a dental student, I find the resources and team support invaluable for my studies and future career."</p>
-                <h4>- Dr. John Smith</h4>
-            </div>
-        </section>
-
-        <!-- Quiz Section -->
-        <section id="quiz" class="quiz-section" aria-labelledby="quiz-heading">
-            <h2 id="quiz-heading">Test Your Knowledge</h2>
-            <button id="quizButton" aria-expanded="false">Take the Quiz</button>
-            <!-- Quiz Container will be dynamically inserted by script.js -->
-            <div id="quizResult" class="quiz-result hidden"></div>
-        </section>
-
-        <!-- Badges Section -->
-        <section id="badges" class="badges-section hidden" aria-labelledby="badges-heading">
-            <h2 id="badges-heading">Your Badges</h2>
-            <div class="badge-container">
-                <!-- Badges will be dynamically inserted here -->
+                <!-- Team Member 8: Shaikh Maheen -->
+                <div class="team-member">
+                    <h3>Shaikh Maheen</h3>
+                    <div class="member-image">
+                        <img src="shaikh.png" alt="Shaikh Maheen">
+                    </div>
+                    <p class="role">Treasurer</p>
+                    <p class="bio">Shaikh, a junior at the High School for Health Professions, aims to maintain the financial health of the organization while helping those in need.</p>
+                </div>
             </div>
         </section>
     </main>
@@ -288,25 +131,26 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Contact Us</h3>
-                <p>Email: arepresentedsmile@gmail.com</p>
-                <p>Phone: 347-265-6439</p>
+                <p>Email: <a href="mailto:arepresentedsmile@gmail.com">arepresentedsmile@gmail.com</a></p>
+                <p>Phone: <a href="tel:347-265-6439">347-265-6439</a></p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <p><a href="#missions">Missions</a></p>
-                <p><a href="team.html">Our Team</a></p>
-                <p><a href="#quiz">Quiz</a></p>
-                <p><a href="#learn">Lessons</a></p>
+                <ul>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="index.html#articles">Articles</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                </ul>
             </div>
             <div class="footer-section">
                 <h3>Follow Us</h3>
                 <div class="social-links">
-                    <a href="https://www.instagram.com/yourprofile" target="_blank" aria-label="Instagram">📸</a>
+                    <a href="https://www.instagram.com/arepresentedsmile/profilecard/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; 2024 A Represented Smile. All rights reserved.
+            <p>&copy; 2024 A Represented Smile. All rights reserved.</p>
         </div>
     </footer>
 
