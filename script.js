@@ -32,6 +32,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ------------------------------
+       Dropdown Menu Functionality
+    ------------------------------ */
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const dropdownMenu = toggle.nextElementSibling;
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', !isExpanded);
+            dropdownMenu.classList.toggle('active');
+            console.log(`Dropdown toggled. Expanded: ${!isExpanded}`);
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!toggle.contains(e.target)) {
+                toggle.setAttribute('aria-expanded', 'false');
+                const dropdownMenu = toggle.nextElementSibling;
+                dropdownMenu.classList.remove('active');
+                console.log('Dropdown closed by clicking outside.');
+            }
+        });
+
+        // Enable keyboard accessibility for dropdown
+        toggle.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                toggle.click();
+                console.log(`Dropdown toggled via keyboard. Key pressed: ${e.key}`);
+            }
+        });
+    });
+
+    /* ------------------------------
        Timer Functionality
     ------------------------------ */
     const timerDisplay = document.getElementById('timer-display');
@@ -318,8 +352,11 @@ document.addEventListener('DOMContentLoaded', () => {
             tabContents.forEach(content => {
                 content.classList.remove('active');
             });
-            document.getElementById(`${tab}-content`).classList.add('active');
-            console.log(`Displayed content for tab: ${tab}`);
+            const activeContent = document.getElementById(`${tab}-content`);
+            if (activeContent) {
+                activeContent.classList.add('active');
+                console.log(`Displayed content for tab: ${tab}`);
+            }
         });
     });
 
@@ -327,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
        Quiz Functionality
     ------------------------------ */
     const quizSection = document.querySelector('#quiz');
-    const quizButton = document.getElementById('quizButton'); // Ensure this is selected correctly
+    const quizButton = document.getElementById('quizButton');
     const quizResult = document.getElementById('quizResult');
 
     // Create Quiz Container

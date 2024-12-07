@@ -265,626 +265,112 @@ h2 {
 }
 
 /* ------------------------------
-   Missions Section Styles
+   Team Section Styles
 ------------------------------ */
-.missions-section {
+.team-section {
     text-align: center;
 }
 
-.mission-items {
+.team-intro {
+    font-size: var(--font-size-medium);
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.team-member {
+    background: var(--background-light);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.team-member h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: var(--font-size-medium);
+}
+
+.team-member .member-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.team-member .role {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.team-member .bio {
+    font-size: var(--font-size-small);
+    color: var(--text-dark);
+}
+
+/* ------------------------------
+   Footer Styles
+------------------------------ */
+footer {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.footer-content {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 1.5rem;
-}
-
-.mission-item {
-    flex: 1;
-    min-width: 250px;
-    background: var(--background-light);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease;
-}
-
-.mission-item:hover {
-    transform: translateY(-5px);
-}
-
-.mission-item h3 {
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-    font-size: var(--font-size-medium);
-}
-
-.mission-item p {
-    font-size: var(--font-size-small);
-    color: var(--text-dark);
-}
-
-/* ------------------------------
-   Events Section Styles
------------------------------- */
-.events-section {
-    text-align: center;
-}
-
-.events-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.event-item {
-    background: var(--background-light);
-    padding: 1.5rem;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 600px;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease;
-}
-
-.event-item:hover {
-    transform: translateY(-5px);
-}
-
-.event-item h3 {
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-    font-size: var(--font-size-medium);
-}
-
-.event-item p {
-    font-size: var(--font-size-small);
-    color: var(--text-dark);
-}
-
-.event-item p strong {
-    color: var(--primary-color);
-}
-
-/* ------------------------------
-   Timer Section Styles
------------------------------- */
-.timer-container {
-    text-align: center;
-    padding: 2rem;
-    background: var(--background-light);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-#timer-display {
-    font-size: 3rem; /* Adjusted for better readability */
-    font-weight: bold;
-    color: var(--primary-color);
-    margin: 1rem 0;
-}
-
-#quadrant-display {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap; /* Allow quadrants to wrap on small screens */
-}
-
-.quadrant {
-    padding: 1rem 1.5rem;
-    background: var(--background-light);
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    margin: 0.5rem;
-    text-align: center;
-    min-width: 100px;
-    flex: 1 1 45%; /* Adjust width for better fit on mobile */
-}
-
-.quadrant.active {
-    background: var(--primary-color);
-    color: var(--text-light);
-    transform: scale(1.05);
-}
-
-/* ------------------------------
-   Tooth Diagram Styles
------------------------------- */
-.diagram-container {
-    display: flex;
     gap: 2rem;
-    padding: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
 }
 
-#tooth-map {
-    flex: 1;
-    min-height: 300px;
-    background: var(--background-light);
-    border-radius: 10px;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding: 1rem;
-}
-
-.tooth-quadrant {
-    background: var(--background-light);
-    border-radius: 8px;
-    padding: 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    text-align: center;
-}
-
-.tooth-quadrant:hover {
-    background: var(--primary-color);
-    color: var(--text-light);
-}
-
-#tooth-info {
-    flex: 1;
-    padding: 1.5rem;
-    background: var(--secondary-color);
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-}
-
-/* ------------------------------
-   Hygiene Tracker Styles
------------------------------- */
-.tracker-container {
-    background: var(--secondary-color);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.tracker-container h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.tracker-item {
-    margin: 1rem 0;
-    padding: 1rem;
-    background: var(--background-light);
-    border-radius: 8px;
-    transition: background-color 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.tracker-item:hover {
-    background: var(--accent-color);
-}
-
-.tracker-item label {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    cursor: pointer;
-    font-size: var(--font-size-medium);
-}
-
-.tracker-item input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-#save-progress {
-    background: var(--primary-color);
-    color: var(--text-light);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: var(--font-size-medium);
-    transition: var(--transition);
-    margin-top: 1rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#save-progress:hover {
-    background: var(--accent-color);
-    transform: translateY(-2px);
-}
-
-/* Progress Tracking */
-#progress-tracking {
-    margin-top: 2rem;
-    text-align: left;
-}
-
-#progress-tracking h3 {
-    font-size: var(--font-size-medium);
-    margin-bottom: 1rem;
-}
-
-#progress-history {
-    list-style: none;
-    padding: 0;
-}
-
-#progress-history li {
-    background: var(--background-light);
-    padding: 0.8rem;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-    box-shadow: var(--box-shadow);
-    font-size: var(--font-size-small);
-}
-
-/* ------------------------------
-   Learn Section Styles
------------------------------- */
-.learn-section {
-    background: var(--secondary-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.learn-section h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.learn-tabs {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.tab-button {
-    padding: 0.8rem 1.5rem;
-    background: var(--background-light);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: var(--font-size-small);
-}
-
-.tab-button.active {
-    background: var(--primary-color);
-    color: var(--text-light);
-    transform: scale(1.05);
-}
-
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.technique-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.step {
-    background: var(--background-light);
-    padding: 1.5rem;
-    border-radius: 8px;
-    position: relative;
-    transition: transform 0.3s ease;
-}
-
-.step:hover {
-    transform: translateY(-5px);
-}
-
-.step-number {
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    width: 35px;
-    height: 35px;
-    background: var(--primary-color);
-    color: var(--text-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    box-shadow: var(--box-shadow);
-    font-size: var(--font-size-small);
-}
-
-/* ------------------------------
-   Articles Section Styles
------------------------------- */
-.articles-section {
-    background: var(--secondary-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.articles-section h2 {
-    text-align: center;
+.footer-section h3 {
     margin-bottom: 1rem;
     color: var(--primary-color);
 }
 
-.article {
-    background: var(--background-light);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease;
-}
-
-.article:hover {
-    transform: translateY(-5px);
-}
-
-.article h3 {
-    margin-bottom: 0.5rem;
-    font-size: var(--font-size-medium);
-}
-
-.article p {
+.footer-section p,
+.footer-section a {
     font-size: var(--font-size-small);
     color: var(--text-dark);
-}
-
-.read-more {
     text-decoration: none;
+}
+
+.footer-section a:hover {
     color: var(--primary-color);
-    font-weight: bold;
-    font-size: var(--font-size-small);
 }
 
-.read-more:hover {
-    text-decoration: underline;
+.social-links a {
+    display: inline-block;
+    margin-right: 1rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* ------------------------------
-   Testimonials Section Styles
------------------------------- */
-.testimonials-section {
-    background: var(--secondary-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+.social-links a:hover {
+    color: var(--primary-color);
 }
 
-.testimonials-section h2 {
+.footer-bottom {
     text-align: center;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.testimonial {
-    background: var(--background-light);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease;
-}
-
-.testimonial:hover {
-    transform: translateY(-5px);
-}
-
-.testimonial p {
+    margin-top: 2rem;
     font-size: var(--font-size-small);
-    margin-bottom: 0.5rem;
-}
-
-.testimonial h4 {
-    font-size: var(--font-size-small);
-    color: var(--primary-color);
-}
-
-/* ------------------------------
-   Quiz Section Styles
------------------------------- */
-.quiz-section {
-    background: var(--secondary-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    max-width: 800px;
-    margin: 2rem auto;
-}
-
-.quiz-section h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-#quizButton {
-    background: var(--primary-color);
-    color: var(--text-light);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: var(--font-size-medium);
-    transition: var(--transition);
-    display: block;
-    margin: 0 auto;
-}
-
-#quizButton:hover {
-    background: var(--accent-color);
-    transform: translateY(-2px);
-}
-
-.quiz-container {
-    margin-top: 1.5rem;
-}
-
-.quiz-question {
-    background: var(--background-light);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--box-shadow);
-}
-
-.quiz-question p {
-    font-weight: bold;
-    margin-bottom: 1rem;
-    font-size: var(--font-size-medium);
-}
-
-.quiz-question label {
-    display: block;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
-    cursor: pointer;
-    font-size: var(--font-size-small);
-}
-
-.quiz-question input[type="radio"] {
-    margin-right: 0.5rem;
-}
-
-#quizForm button[type="submit"] {
-    background: var(--primary-color);
-    color: var(--text-light);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: var(--font-size-medium);
-    transition: var(--transition);
-    display: block;
-    margin: 1rem auto 0;
-}
-
-#quizForm button[type="submit"]:hover {
-    background: var(--accent-color);
-    transform: translateY(-2px);
-}
-
-#quizResult {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background: var(--accent-color);
-    border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
-    white-space: pre-wrap; /* To preserve line breaks */
-    font-size: var(--font-size-medium);
-}
-
-/* ------------------------------
-   Badges Section Styles
------------------------------- */
-.badges-section {
-    background: var(--secondary-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    max-width: 800px;
-    margin: 2rem auto;
-    text-align: center;
-}
-
-.badges-section h2 {
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.badge-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.badge {
-    background: var(--badge-color);
-    color: var(--text-light);
-    padding: 0.5rem 1rem;
-    border-radius: 12px;
-    font-weight: bold;
-    box-shadow: var(--box-shadow);
-    font-size: var(--font-size-small);
-    animation: popIn 0.5s ease-out;
-}
-
-@keyframes popIn {
-    0% {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* ------------------------------
-   Modal Styles
------------------------------- */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right:0;
-    bottom:0;
-    background: rgba(0,0,0,0.5);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-}
-
-.modal.hidden {
-    display: none;
-}
-
-.modal-content {
-    background: var(--secondary-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    max-width: 600px;
-    width: 90%;
-    position: relative;
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.close-button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.modal-question {
-    margin-bottom: 1.5rem;
-}
-
-.modal-question p {
-    margin: 0.5rem 0;
-    font-size: var(--font-size-small);
+    color: var(--text-dark);
 }
 
 /* ------------------------------
@@ -918,9 +404,12 @@ h2 {
         min-width: 200px;
     }
 
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
     .diagram-container {
         flex-direction: column;
-        align-items: center;
     }
 
     .tooth-map {
@@ -982,6 +471,10 @@ h2 {
 
     .mission-item {
         width: 90%;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
     .events-list {
@@ -1252,117 +745,40 @@ h2 {
 }
 
 /* ------------------------------
-   Quiz History Page Styles
+   Team Section Styles
 ------------------------------ */
-.quiz-history-section {
-    background: var(--secondary-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    max-width: 800px;
-    margin: 2rem auto;
-}
-
-.quiz-history-section h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.history-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.quiz-entry {
-    background: var(--background-light);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.quiz-entry:hover {
-    transform: translateY(-5px);
-    background: var(--accent-color);
-    color: var(--text-light);
-}
-
-.quiz-entry p {
-    margin: 0.3rem 0;
-    font-size: var(--font-size-medium);
-}
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right:0;
-    bottom:0;
-    background: rgba(0,0,0,0.5);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-}
-
-.modal.hidden {
-    display: none;
-}
-
-.modal-content {
-    background: var(--secondary-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    max-width: 600px;
-    width: 90%;
-    position: relative;
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.close-button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.modal-question {
-    margin-bottom: 1.5rem;
-}
-
-.modal-question p {
-    margin: 0.5rem 0;
-    font-size: var(--font-size-small);
-}
+/* Already defined above */
 
 /* ------------------------------
-   Quiz Feedback Styles
+   Footer Styles
 ------------------------------ */
-.feedback {
-    margin-top: 0.5rem;
-    font-size: var(--font-size-small);
-    font-weight: bold;
-}
+/* Already defined above */
 
-.feedback.hidden {
-    display: none;
-}
+/* ------------------------------
+   Other Section Styles
+------------------------------ */
+/* Ensure that all other sections (e.g., timer, learn, articles) are correctly styled */
 
-.feedback.green {
-    color: green;
-}
+/* ------------------------------
+   Quiz History Page Styles (if applicable)
+------------------------------ */
+/* Add styles if you have a separate quiz history page */
 
-.feedback.red {
-    color: red;
-}
+/* ------------------------------
+   Responsive Dropdown Menu Adjustments
+------------------------------ */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+    }
 
-.feedback.orange {
-    color: orange;
-}
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+        display: none;
+    }
 
-/* Existing CSS content continues... */
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+}
