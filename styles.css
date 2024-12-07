@@ -308,62 +308,6 @@ h2 {
 }
 
 /* ------------------------------
-   Team Section Styles
------------------------------- */
-.team-section {
-    text-align: center;
-}
-
-.team-intro {
-    font-size: var(--font-size-medium);
-    margin-bottom: 2rem;
-    color: var(--text-dark);
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.team-member {
-    background: var(--background-light);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease;
-}
-
-.team-member:hover {
-    transform: translateY(-5px);
-}
-
-.team-member h3 {
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-    font-size: var(--font-size-medium);
-}
-
-.team-member .member-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-}
-
-.team-member .role {
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.team-member .bio {
-    font-size: var(--font-size-small);
-    color: var(--text-dark);
-}
-
-/* ------------------------------
    Timer Section Styles
 ------------------------------ */
 .timer-container {
@@ -857,7 +801,7 @@ h2 {
 }
 
 /* ------------------------------
-   Modal Styles (if applicable)
+   Modal Styles
 ------------------------------ */
 .modal {
     position: fixed;
@@ -880,7 +824,7 @@ h2 {
     background: var(--secondary-color);
     padding: 2rem;
     border-radius: var(--border-radius);
-    max-width: 600px;
+    max-width: 800px;
     width: 90%;
     position: relative;
     max-height: 80vh;
@@ -893,6 +837,12 @@ h2 {
     right: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--text-dark);
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: var(--primary-color);
 }
 
 .modal-question {
@@ -902,50 +852,6 @@ h2 {
 .modal-question p {
     margin: 0.5rem 0;
     font-size: var(--font-size-small);
-}
-
-/* ------------------------------
-   Quiz History Page Styles (if applicable)
------------------------------- */
-.quiz-history-section {
-    background: var(--secondary-color);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    max-width: 800px;
-    margin: 2rem auto;
-}
-
-.quiz-history-section h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.history-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.quiz-entry {
-    background: var(--background-light);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.quiz-entry:hover {
-    transform: translateY(-5px);
-    background: var(--accent-color);
-    color: var(--text-light);
-}
-
-.quiz-entry p {
-    margin: 0.3rem 0;
-    font-size: var(--font-size-medium);
 }
 
 /* ------------------------------
@@ -1006,7 +912,7 @@ h2 {
         flex-direction: column;
     }
 
-    .tooth-map {
+    #tooth-map {
         grid-template-columns: repeat(1, 1fr);
     }
 }
@@ -1088,7 +994,7 @@ h2 {
         min-width: 80px;
     }
 
-    .tooth-map {
+    #tooth-map {
         grid-template-columns: repeat(1, 1fr);
     }
 
@@ -1096,7 +1002,7 @@ h2 {
         flex-direction: column;
     }
 
-    .tooth-info {
+    #tooth-info {
         width: 100%;
     }
 
@@ -1197,7 +1103,7 @@ h2 {
         padding: 1rem;
     }
 
-    .tooth-info {
+    #tooth-info {
         padding: 1rem;
     }
 
@@ -1283,11 +1189,6 @@ h2 {
 }
 
 /* ------------------------------
-   Dropdown Menu Styles
------------------------------- */
-/* Already defined above */
-
-/* ------------------------------
    Footer Styles
 ------------------------------ */
 footer {
@@ -1341,7 +1242,7 @@ footer {
 }
 
 /* ------------------------------
-   Quiz History Page Styles (if applicable)
+   Quiz History Section Styles
 ------------------------------ */
 .quiz-history-section {
     background: var(--secondary-color);
@@ -1352,45 +1253,43 @@ footer {
     margin: 2rem auto;
 }
 
-.quiz-history-section h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
 .history-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .quiz-entry {
     background: var(--background-light);
-    padding: 1rem;
-    border-radius: 8px;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.quiz-entry:hover {
+.quiz-entry:hover,
+.quiz-entry:focus {
     transform: translateY(-5px);
-    background: var(--accent-color);
-    color: var(--text-light);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    outline: none;
 }
 
-.quiz-entry p {
-    margin: 0.3rem 0;
+.test-identifier {
     font-size: var(--font-size-medium);
+    font-weight: 700;
+    color: var(--primary-color);
 }
 
-/* ------------------------------
-   Dropdown Menu Adjustments for Mobile
------------------------------- */
-/* Already handled in mobile media queries above */
+.score {
+    font-size: var(--font-size-medium);
+    color: var(--text-dark);
+}
 
-/* ------------------------------
-   Additional Section Styles
------------------------------- */
-/* Ensure all other sections (e.g., quiz, badges) have consistent styles as defined above */
-
+/* Accessibility: Focus Styles */
+.quiz-entry:focus {
+    outline: 2px solid var(--primary-color);
+}

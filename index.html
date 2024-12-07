@@ -17,7 +17,7 @@
             <li><a href="#missions">Missions</a></li>
             <li><a href="team.html">Our Team</a></li>
             <li class="dropdown">
-                <a href="#quiz" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Quiz</a>
+                <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Quiz</a>
                 <ul class="dropdown-menu" aria-label="Quiz Submenu">
                     <li><a href="#quiz">Take Quiz</a></li>
                     <li><a href="quiz_history.html">Quiz History</a></li>
@@ -131,18 +131,111 @@
         <section id="learn" class="learn-section" aria-labelledby="learn-heading">
             <h2 id="learn-heading">Learn About Oral Hygiene</h2>
             <div class="learn-tabs" role="tablist">
-                <button class="tab-button active" data-tab="brushing" role="tab" aria-selected="true">Brushing</button>
-                <button class="tab-button" data-tab="flossing" role="tab" aria-selected="false">Flossing</button>
-                <button class="tab-button" data-tab="nutrition" role="tab" aria-selected="false">Nutrition</button>
-                <button class="tab-button" data-tab="advanced" role="tab" aria-selected="false">Advanced Topics</button>
+                <button class="tab-button active" data-tab="brushing" role="tab" aria-selected="true" id="brushing-tab">Brushing</button>
+                <button class="tab-button" data-tab="flossing" role="tab" aria-selected="false" id="flossing-tab">Flossing</button>
+                <button class="tab-button" data-tab="nutrition" role="tab" aria-selected="false" id="nutrition-tab">Nutrition</button>
+                <button class="tab-button" data-tab="advanced" role="tab" aria-selected="false" id="advanced-tab">Advanced Topics</button>
             </div>
             <div class="tab-content active" id="brushing-content" role="tabpanel" aria-labelledby="brushing-tab">
                 <h3>Proper Brushing Technique</h3>
                 <div class="technique-steps">
-                    <!-- Steps as provided -->
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Apply a pea-sized amount of toothpaste to your toothbrush.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Hold the toothbrush at a 45-degree angle to your gums.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Use gentle, circular motions to brush the outer, inner, and chewing surfaces of each tooth.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Brush for at least two minutes, ensuring all areas are covered.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <p>Don't forget to brush your tongue to remove bacteria and freshen breath.</p>
+                    </div>
                 </div>
             </div>
-            <!-- Other tab contents -->
+            <div class="tab-content" id="flossing-content" role="tabpanel" aria-labelledby="flossing-tab">
+                <h3>Effective Flossing Techniques</h3>
+                <div class="technique-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Take about 18 inches of dental floss and wind most of it around each middle finger.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Hold the floss tightly between your thumbs and forefingers.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Guide the floss between your teeth using a gentle rubbing motion.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Curve the floss around each tooth in a C-shape and slide it beneath the gumline.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <p>Use a clean section of floss for each tooth to avoid spreading bacteria.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="nutrition-content" role="tabpanel" aria-labelledby="nutrition-tab">
+                <h3>Nutrition for Healthy Teeth and Gums</h3>
+                <div class="technique-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Consume a balanced diet rich in fruits, vegetables, lean proteins, and whole grains.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Limit sugary snacks and beverages that can contribute to tooth decay.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Include calcium-rich foods like dairy products, almonds, and leafy greens to strengthen enamel.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Stay hydrated by drinking plenty of water, which helps wash away food particles and bacteria.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <p>Incorporate vitamin C sources such as oranges, strawberries, and bell peppers to maintain healthy gums.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="advanced-content" role="tabpanel" aria-labelledby="advanced-tab">
+                <h3>Advanced Oral Hygiene Topics</h3>
+                <div class="technique-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Understand the role of interdental brushes and water flossers in comprehensive oral care.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Learn about the impact of orthodontic appliances on oral hygiene and how to maintain them.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Explore the benefits of antimicrobial mouthwashes and their appropriate use.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Delve into the latest advancements in dental technology and treatments.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <p>Investigate the connections between oral health and overall systemic health.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Detailed Articles Section -->
@@ -173,8 +266,8 @@
             </div>
         </section>
 
-        <!-- Quiz Section -->
-        <section id="quiz" class="quiz-section" aria-labelledby="quiz-heading">
+         <!-- Quiz Section -->
+         <section id="quiz" class="quiz-section" aria-labelledby="quiz-heading">
             <h2 id="quiz-heading">Test Your Knowledge</h2>
             <button id="quizButton" aria-expanded="false">Take the Quiz</button>
             <!-- Quiz Container will be dynamically inserted by script.js -->
@@ -188,9 +281,36 @@
                 <!-- Badges will be dynamically inserted here -->
             </div>
         </section>
+
     </main>
 
-    <!-- Removed Footer -->
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:arepresentedsmile@gmail.com">arepresentedsmile@gmail.com</a></p>
+                <p>Phone: <a href="tel:347-265-6439">347-265-6439</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="#articles">Articles</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/arepresentedsmile/profilecard/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 A Represented Smile. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

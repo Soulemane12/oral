@@ -3,106 +3,100 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const historyList = document.getElementById('history-list');
     const quizModal = document.getElementById('quiz-modal');
-    const modalCloseButton = quizModal.querySelector('.close-button');
     const modalBody = document.getElementById('modal-body');
+    const closeButton = document.querySelector('.close-button');
 
-    // Load quiz history from localStorage
+    // Load Quiz History from localStorage
     function loadQuizHistory() {
-        const history = JSON.parse(localStorage.getItem('quizHistory') || '[]');
-        if (history.length === 0) {
-            historyList.innerHTML = '<p>No quizzes taken yet.</p>';
+        const quizHistory = JSON.parse(localStorage.getItem('quizHistory') || '[]');
+        if (quizHistory.length === 0) {
+            historyList.innerHTML = '<p>No quiz history available.</p>';
             return;
         }
 
-        history.forEach((quiz, index) => {
-            const quizEntry = document.createElement('div');
-            quizEntry.classList.add('quiz-entry');
-            quizEntry.setAttribute('tabindex', '0');
-            quizEntry.setAttribute('role', 'button');
-            quizEntry.setAttribute('aria-label', `View details for quiz taken on ${new Date(quiz.date).toLocaleDateString()}`);
-            quizEntry.dataset.index = index; // Optional: to identify the quiz
+        quizHistory.forEach((quiz, index) => {
+            const entry = document.createElement('div');
+            entry.classList.add('quiz-entry');
+            entry.dataset.index = index;
 
-            const dateP = document.createElement('p');
-            dateP.textContent = `Date: ${new Date(quiz.date).toLocaleDateString()} ${new Date(quiz.date).toLocaleTimeString()}`;
-            quizEntry.appendChild(dateP);
+            // Test Identifier (e.g., Date)
+            const testIdentifier = document.createElement('div');
+            testIdentifier.classList.add('test-identifier');
+            const date = new Date(quiz.date);
+            testIdentifier.textContent = `Test Date: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+            entry.appendChild(testIdentifier);
 
-            const scoreP = document.createElement('p');
-            scoreP.textContent = `Score: ${quiz.score}/${quiz.questions.length} (${quiz.percentage}%)`;
-            quizEntry.appendChild(scoreP);
+            // Score
+            const score = document.createElement('div');
+            score.classList.add('score');
+            score.textContent = `Score: ${quiz.score}/${quiz.questions.length} (${quiz.percentage}%)`;
+            entry.appendChild(score);
 
-            // Add click event to open modal with details
-            quizEntry.addEventListener('click', () => {
-                displayQuizDetails(quiz);
+            // Accessibility Features
+            entry.setAttribute('tabindex', '0');
+            entry.setAttribute('role', 'button');
+            entry.setAttribute('aria-label', `View details for quiz taken on ${date.toLocaleDateString()}`);
+
+            // Event Listener for Click
+            entry.addEventListener('click', () => {
+                showQuizDetails(index);
             });
 
-            // Enable keyboard accessibility
-            quizEntry.addEventListener('keypress', (e) => {
+            // Event Listener for Keyboard Interaction
+            entry.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
-                    quizEntry.click();
+                    showQuizDetails(index);
+                    console.log(`Quiz entry ${index + 1} activated via keyboard.`);
                 }
             });
 
-            historyList.appendChild(quizEntry);
-            console.log(`Loaded quiz taken on ${quiz.date}`);
+            historyList.appendChild(entry);
+            console.log(`Loaded quiz entry ${index + 1}`);
         });
     }
 
-    // Display quiz details in modal
-    function displayQuizDetails(quiz) {
-        modalBody.innerHTML = ''; // Clear previous content
+    // Show Quiz Details in Modal
+    function showQuizDetails(index) {
+        const quizHistory = JSON.parse(localStorage.getItem('quizHistory') || '[]');
+        const quiz = quizHistory[index];
+        if (!quiz) return;
 
-        const scoreP = document.createElement('p');
-        scoreP.textContent = `Score: ${quiz.score}/${quiz.questions.length} (${quiz.percentage}%)`;
-        modalBody.appendChild(scoreP);
-
-        quiz.questions.forEach((q, index) => {
-            const questionDiv = document.createElement('div');
-            questionDiv.classList.add('modal-question');
-
-            const questionP = document.createElement('p');
-            questionP.textContent = `${index + 1}. ${q.question}`;
-            questionDiv.appendChild(questionP);
-
-            const answerP = document.createElement('p');
-            answerP.textContent = `Your Answer: ${q.selectedAnswer}`;
-            answerP.style.color = q.isCorrect ? 'green' : 'red';
-            questionDiv.appendChild(answerP);
-
-            const correctP = document.createElement('p');
-            correctP.textContent = `Correct Answer: ${q.correctAnswer}`;
-            correctP.style.color = 'green';
-            questionDiv.appendChild(correctP);
-
-            const explanationP = document.createElement('p');
-            explanationP.textContent = q.explanation;
-            explanationP.style.fontStyle = 'italic';
-            questionDiv.appendChild(explanationP);
-
-            modalBody.appendChild(questionDiv);
-        });
-
-        // Show the modal
+        modalBody.innerHTML = `
+            <p><strong>Date:</strong> ${new Date(quiz.date).toLocaleString()}</p>
+            <p><strong>Score:</strong> ${quiz.score}/${quiz.questions.length} (${quiz.percentage}%)</p>
+            <hr>
+            ${quiz.questions.map((q, idx) => `
+                <div class="modal-question">
+                    <p><strong>Question ${idx + 1}:</strong> ${q.question}</p>
+                    <p><strong>Your Answer:</strong> ${q.selectedAnswer}</p>
+                    <p><strong>Correct Answer:</strong> ${q.correctAnswer}</p>
+                    <p><em>${q.explanation}</em></p>
+                </div>
+            `).join('')}
+        `;
         quizModal.classList.remove('hidden');
         quizModal.style.display = 'flex';
-        console.log('Displayed quiz details in modal.');
+        console.log(`Displayed details for quiz ${index + 1}`);
     }
 
-    // Close modal when clicking on the close button
-    modalCloseButton.addEventListener('click', () => {
+    // Close Modal Function
+    function closeModal() {
         quizModal.classList.add('hidden');
         quizModal.style.display = 'none';
-        console.log('Quiz details modal closed.');
-    });
+        console.log('Quiz modal closed.');
+    }
 
-    // Close modal when clicking outside the modal content
-    window.addEventListener('click', (event) => {
-        if (event.target === quizModal) {
-            quizModal.classList.add('hidden');
-            quizModal.style.display = 'none';
-            console.log('Quiz details modal closed by clicking outside.');
+    // Event Listener for Close Button
+    closeButton.addEventListener('click', closeModal);
+
+    // Close Modal when clicking outside the content
+    window.addEventListener('click', (e) => {
+        if (e.target === quizModal) {
+            closeModal();
+            console.log('Quiz modal closed by clicking outside.');
         }
     });
 
-    // Initialize
+    // Load Quiz History on Page Load
     loadQuizHistory();
 });

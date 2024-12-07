@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="main-nav" aria-label="Main Navigation">
         <a href="index.html" class="logo">A Represented Smile</a>
-        <!-- Hamburger Menu -->
+        <!-- Hamburger Menu for Mobile -->
         <div class="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" role="button" tabindex="0">
             ☰
         </div>
@@ -17,7 +18,7 @@
             <li><a href="index.html#missions">Missions</a></li>
             <li><a href="team.html">Our Team</a></li>
             <li class="dropdown">
-                <a href="#quiz" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Quiz</a>
+                <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Quiz</a>
                 <ul class="dropdown-menu" aria-label="Quiz Submenu">
                     <li><a href="index.html#quiz">Take Quiz</a></li>
                     <li><a href="quiz_history.html">Quiz History</a></li>
@@ -30,6 +31,7 @@
         </ul>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
             <h1>Quiz History</h1>
@@ -37,6 +39,7 @@
         </div>
     </section>
 
+    <!-- Main Content -->
     <main>
         <!-- Quiz History Section -->
         <section id="quiz-history" class="quiz-history-section" aria-labelledby="quiz-history-heading">
@@ -57,7 +60,7 @@
             </div>
         </div>
 
-        <!-- Badges Section -->
+        <!-- Badges Section (Optional) -->
         <section id="badges" class="badges-section hidden" aria-labelledby="badges-heading">
             <h2 id="badges-heading">Your Badges</h2>
             <div class="badge-container">
@@ -66,8 +69,37 @@
         </section>
     </main>
 
-    <!-- Removed Footer -->
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:arepresentedsmile@gmail.com">arepresentedsmile@gmail.com</a></p>
+                <p>Phone: <a href="tel:347-265-6439">347-265-6439</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="index.html#articles">Articles</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/arepresentedsmile/profilecard/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 A Represented Smile. All rights reserved.</p>
+        </div>
+    </footer>
 
+    <!-- Shared Script -->
+    <script src="script.js"></script>
+    <!-- Quiz History Script -->
     <script src="quiz_history.js"></script>
 </body>
 </html>

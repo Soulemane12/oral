@@ -34,33 +34,46 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ------------------------------
        Dropdown Menu Functionality
     ------------------------------ */
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    const dropdowns = document.querySelectorAll('.dropdown');
 
-    dropdownToggles.forEach(toggle => {
+    dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
         toggle.addEventListener('click', (e) => {
             e.preventDefault();
-            const dropdownMenu = toggle.nextElementSibling;
-            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', !isExpanded);
-            dropdownMenu.classList.toggle('active');
-            console.log(`Dropdown toggled. Expanded: ${!isExpanded}`);
+            const isActive = dropdown.classList.contains('active');
+            // Close all other dropdowns
+            dropdowns.forEach(d => {
+                if (d !== dropdown) {
+                    d.classList.remove('active');
+                    d.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+                }
+            });
+            // Toggle current dropdown
+            dropdown.classList.toggle('active');
+            toggle.setAttribute('aria-expanded', !isActive);
+            console.log(`Dropdown toggled. Active: ${!isActive}`);
         });
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!toggle.contains(e.target)) {
-                toggle.setAttribute('aria-expanded', 'false');
-                const dropdownMenu = toggle.nextElementSibling;
-                dropdownMenu.classList.remove('active');
-                console.log('Dropdown closed by clicking outside.');
-            }
-        });
-
-        // Enable keyboard accessibility for dropdown
+        // Enable keyboard accessibility for dropdown toggle
         toggle.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 toggle.click();
                 console.log(`Dropdown toggled via keyboard. Key pressed: ${e.key}`);
+            }
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        dropdowns.forEach(dropdown => {
+            if (!dropdown.contains(e.target)) {
+                if (dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                    dropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+                    console.log('Dropdown closed by clicking outside.');
+                }
             }
         });
     });
@@ -665,4 +678,113 @@ document.addEventListener('DOMContentLoaded', () => {
     saveProgressButton.addEventListener('click', saveProgress);
     loadTodayProgress(); // Load today's progress on page load
     updateProgressHistory(); // Update progress history on page load
+
+    /* ------------------------------
+       Quiz History Functionality
+    ------------------------------ */
+    // This part handles the Quiz History page specifically.
+    // It checks if the current page is the Quiz History page by checking the URL or a specific element.
+
+    if (document.getElementById('quiz-history')) {
+        console.log('Initializing Quiz History functionalities.');
+
+        const historyList = document.getElementById('history-list');
+        const quizModal = document.getElementById('quiz-modal');
+        const modalBody = document.getElementById('modal-body');
+        const closeButton = document.querySelector('.close-button');
+
+        // Load Quiz History from localStorage
+        function loadQuizHistory() {
+            const quizHistory = JSON.parse(localStorage.getItem('quizHistory') || '[]');
+            if (quizHistory.length === 0) {
+                historyList.innerHTML = '<p>No quiz history available.</p>';
+                return;
+            }
+
+            quizHistory.forEach((quiz, index) => {
+                const entry = document.createElement('div');
+                entry.classList.add('quiz-entry');
+                entry.dataset.index = index;
+
+                // Test Identifier (e.g., Date)
+                const testIdentifier = document.createElement('div');
+                testIdentifier.classList.add('test-identifier');
+                const date = new Date(quiz.date);
+                testIdentifier.textContent = `Test Date: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+                entry.appendChild(testIdentifier);
+
+                // Score
+                const score = document.createElement('div');
+                score.classList.add('score');
+                score.textContent = `Score: ${quiz.score}/${quiz.questions.length} (${quiz.percentage}%)`;
+                entry.appendChild(score);
+
+                // Accessibility Features
+                entry.setAttribute('tabindex', '0');
+                entry.setAttribute('role', 'button');
+                entry.setAttribute('aria-label', `View details for quiz taken on ${date.toLocaleDateString()}`);
+
+                // Event Listener for Click
+                entry.addEventListener('click', () => {
+                    showQuizDetails(index);
+                });
+
+                // Event Listener for Keyboard Interaction
+                entry.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        showQuizDetails(index);
+                        console.log(`Quiz entry ${index + 1} activated via keyboard.`);
+                    }
+                });
+
+                historyList.appendChild(entry);
+                console.log(`Loaded quiz entry ${index + 1}`);
+            });
+        }
+
+        // Show Quiz Details in Modal
+        function showQuizDetails(index) {
+            const quizHistory = JSON.parse(localStorage.getItem('quizHistory') || '[]');
+            const quiz = quizHistory[index];
+            if (!quiz) return;
+
+            modalBody.innerHTML = `
+                <p><strong>Date:</strong> ${new Date(quiz.date).toLocaleString()}</p>
+                <p><strong>Score:</strong> ${quiz.score}/${quiz.questions.length} (${quiz.percentage}%)</p>
+                <hr>
+                ${quiz.questions.map((q, idx) => `
+                    <div class="modal-question">
+                        <p><strong>Question ${idx + 1}:</strong> ${q.question}</p>
+                        <p><strong>Your Answer:</strong> ${q.selectedAnswer}</p>
+                        <p><strong>Correct Answer:</strong> ${q.correctAnswer}</p>
+                        <p><em>${q.explanation}</em></p>
+                    </div>
+                `).join('')}
+            `;
+            quizModal.classList.remove('hidden');
+            quizModal.style.display = 'flex';
+            console.log(`Displayed details for quiz ${index + 1}`);
+        }
+
+        // Close Modal Function
+        function closeModal() {
+            quizModal.classList.add('hidden');
+            quizModal.style.display = 'none';
+            console.log('Quiz modal closed.');
+        }
+
+        // Event Listener for Close Button
+        closeButton.addEventListener('click', closeModal);
+
+        // Close Modal when clicking outside the content
+        window.addEventListener('click', (e) => {
+            if (e.target === quizModal) {
+                closeModal();
+                console.log('Quiz modal closed by clicking outside.');
+            }
+        });
+
+        // Load Quiz History on Page Load
+        loadQuizHistory();
+    }
 });
